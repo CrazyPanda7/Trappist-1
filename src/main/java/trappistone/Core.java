@@ -1,22 +1,17 @@
 package trappistone;
 
-import java.io.File;
-
-import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
-import micdoodle8.mods.galacticraft.api.recipe.SchematicRegistry;
 import micdoodle8.mods.galacticraft.core.util.CreativeTabGC;
-import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.MinecraftForge;
 
 import org.apache.logging.log4j.Level;
 
 import trappistone.TrappistSystem.TrappistOnePlanets;
 import trappistone.core.proxy.CommonProxy;
+import trappistone.core.registers.blocks.TPBlocks;
+import trappistone.core.registers.items.TPItems;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -25,9 +20,6 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartedEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.FMLRelaunchLog;
 
 @Mod(modid = Core.MODID, version = Core.VERSION, dependencies = "required-after:GalacticraftCore; required-after:GalacticraftMars;", name = Core.NAME)
@@ -56,6 +48,8 @@ public class Core
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
+		TPBlocks.initialize();
+		TPItems.initialize();
 		proxy.preload();
 	}
 
@@ -68,7 +62,7 @@ public class Core
 		TrappistOnePlanets.init();
 
 		TPCreativeTabs.TPBlocksTab = new CreativeTabGC(CreativeTabs.getNextID(), "TPBlocks", Item.getItemFromBlock(Blocks.grass), 0);
-		TPCreativeTabs.TPItemsTab = new CreativeTabGC(CreativeTabs.getNextID(), "TPItems", Items.arrow, 0);
+		TPCreativeTabs.TPItemsTab = new CreativeTabGC(CreativeTabs.getNextID(), "TPItems", TPItems.itemAlienGel, 0);
 		TPCreativeTabs.TPArmorTab = new CreativeTabGC(CreativeTabs.getNextID(), "TPArmor", Items.diamond_helmet, 0);
 
 	}
