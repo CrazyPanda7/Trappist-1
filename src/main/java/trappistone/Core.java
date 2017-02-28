@@ -67,13 +67,9 @@ public class Core
 
 		TrappistOnePlanets.init();
 
-		TPCreativeTabs.TPBlocksTab = new CreativeTabGC(
-				CreativeTabs.getNextID(), "TPBlocks",
-				Item.getItemFromBlock(Blocks.grass), 0);
-		TPCreativeTabs.TPItemsTab = new CreativeTabGC(CreativeTabs.getNextID(),
-				"TPItems", Items.arrow, 0);
-		TPCreativeTabs.TPArmorTab = new CreativeTabGC(CreativeTabs.getNextID(),
-				"TPArmor", Items.diamond_helmet, 0);
+		TPCreativeTabs.TPBlocksTab = new CreativeTabGC(CreativeTabs.getNextID(), "TPBlocks", Item.getItemFromBlock(Blocks.grass), 0);
+		TPCreativeTabs.TPItemsTab = new CreativeTabGC(CreativeTabs.getNextID(), "TPItems", Items.arrow, 0);
+		TPCreativeTabs.TPArmorTab = new CreativeTabGC(CreativeTabs.getNextID(), "TPArmor", Items.diamond_helmet, 0);
 
 	}
 
