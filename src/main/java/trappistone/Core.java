@@ -6,9 +6,13 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
+import java.io.File;
+
 import org.apache.logging.log4j.Level;
 
 import trappistone.TrappistSystem.TrappistOnePlanets;
+import trappistone.core.config.TPBiomeConfig;
+import trappistone.core.config.TPDimensionConfig;
 import trappistone.core.proxy.CommonProxy;
 import trappistone.core.registers.blocks.TPBlocks;
 import trappistone.core.registers.items.TPItems;
@@ -50,6 +54,8 @@ public class Core
 
 		TPBlocks.initialize();
 		TPItems.initialize();
+		TPDimensionConfig.initalize(new File(event.getModConfigurationDirectory(), "TrappistOne/dimension.cfg"));
+		TPBiomeConfig.initalize(new File(event.getModConfigurationDirectory(), "TrappistOne/biome.cfg"));
 		proxy.preload();
 	}
 

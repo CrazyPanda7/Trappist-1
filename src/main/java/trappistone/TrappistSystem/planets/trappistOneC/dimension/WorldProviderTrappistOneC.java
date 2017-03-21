@@ -111,7 +111,7 @@ public class WorldProviderTrappistOneC extends WorldProviderSpace implements IEx
 
     public CelestialBody getCelestialBody() {
 
-        return TrappistOnePlanets.TrappistOneB;
+        return TrappistOnePlanets.TrappistOneC;
 
     }
 
